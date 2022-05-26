@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Interface/UI/TitleScreen/Buttons/RetryButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Interface/UI/TitleScreen/Buttons/QuitButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Interface/Assets/Fonts/FredokaOne_48.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Interface/Assets/Fonts/FredokaOne_70.tres" type="DynamicFont" id=6]
+
+[node name="GameoverOverlay" type="ColorRect"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.054902, 0.0352941, 0.184314, 0.843137 )
+
+[node name="GameoverMenu" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 120.0
+margin_top = 80.0
+margin_right = -80.0
+margin_bottom = -120.0
+
+[node name="GameoverLabel" type="Label" parent="GameoverMenu"]
+margin_right = 1720.0
+margin_bottom = 59.0
+custom_fonts/font = ExtResource( 5 )
+text = "GAME OVER"
+align = 1
+
+[node name="SurviveLabel" type="Label" parent="GameoverMenu"]
+margin_top = 63.0
+margin_right = 1720.0
+margin_bottom = 122.0
+custom_fonts/font = ExtResource( 5 )
+text = "YOU SURVIVED FOR:"
+align = 1
+
+[node name="TimeLabel" type="Label" parent="GameoverMenu"]
+margin_top = 126.0
+margin_right = 1720.0
+margin_bottom = 213.0
+custom_fonts/font = ExtResource( 6 )
+text = "00:00"
+align = 1
+
+[node name="GameoverButtons" type="VBoxContainer" parent="GameoverMenu"]
+margin_top = 217.0
+margin_right = 1720.0
+margin_bottom = 880.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="RetryButton" parent="GameoverMenu/GameoverButtons" instance=ExtResource( 2 )]
+margin_top = 269.0
+margin_right = 1720.0
+margin_bottom = 329.0
+
+[node name="QuitButton" parent="GameoverMenu/GameoverButtons" instance=ExtResource( 4 )]
+margin_top = 333.0
+margin_right = 1720.0
+margin_bottom = 393.0
+transition_to = "res://Interface/UI/TitleScreen/TitleScreen_UI.tscn"
+
+[connection signal="button_up" from="GameoverMenu/GameoverButtons/QuitButton" to="GameoverMenu/GameoverButtons/QuitButton" method="_on_QuitButton_button_up"]

@@ -1,0 +1,564 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://Player/MC_Sheet.png" type="Texture" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=2]
+
+[sub_resource type="CylinderShape" id=14]
+height = 1.5504
+
+[sub_resource type="Animation" id=8]
+resource_name = "damage"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.25 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "death_1"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 27 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 360 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 0.5, 1.5, 1 ), Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "death_2"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 12 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 360 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 0.5, 1.5, 1 ), Vector3( 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "falling_1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "falling_2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 17 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "idle_1"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1.05, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite3D:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle_2"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 11, 10, 11 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1.05, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite3D:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "jump_1"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, -0.5, 2 ),
+"update": 0,
+"values": [ Vector3( 1.66, 0.33, 1 ), Vector3( 0.33, 1.66, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite3D:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "jump_2"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 16 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, -0.5, 2 ),
+"update": 0,
+"values": [ Vector3( 1.5, 0.5, 1 ), Vector3( 0.5, 1.5, 1 ), Vector3( 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite3D:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "walk_1"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite3D:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "walk_2"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 13, 14, 15 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite3D:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "walk_2"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "jump_2"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "idle_1"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "walk_1"
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "death_1"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "jump_1"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "falling_1"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "falling_2"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "idle_2"
+
+[sub_resource type="AnimationNodeTransition" id=20]
+input_count = 3
+input_0/name = "dead"
+input_0/auto_advance = false
+input_1/name = "damaged"
+input_1/auto_advance = false
+input_2/name = "undamaged"
+input_2/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=26]
+input_count = 2
+input_0/name = "on_ground"
+input_0/auto_advance = false
+input_1/name = "in_air"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=21]
+input_count = 2
+input_0/name = "on_ground"
+input_0/auto_advance = false
+input_1/name = "in_air"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=32]
+input_count = 2
+input_0/name = "false"
+input_0/auto_advance = false
+input_1/name = "true"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=33]
+input_count = 2
+input_0/name = "false"
+input_0/auto_advance = false
+input_1/name = "true"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=27]
+input_count = 2
+input_0/name = "idle"
+input_0/auto_advance = false
+input_1/name = "walk"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=22]
+input_count = 2
+input_0/name = "idle"
+input_0/auto_advance = false
+input_1/name = "walk"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeBlendTree" id=23]
+graph_offset = Vector2( -672.85, 969 )
+nodes/Animation/node = SubResource( 19 )
+nodes/Animation/position = Vector2( -420, 760 )
+"nodes/Animation 2/node" = SubResource( 15 )
+"nodes/Animation 2/position" = Vector2( -420, 880 )
+"nodes/Animation 3/node" = SubResource( 16 )
+"nodes/Animation 3/position" = Vector2( -460, 1040 )
+"nodes/Animation 4/node" = SubResource( 17 )
+"nodes/Animation 4/position" = Vector2( -480, 200 )
+"nodes/Animation 5/node" = SubResource( 18 )
+"nodes/Animation 5/position" = Vector2( -480, 320 )
+"nodes/Animation 6/node" = SubResource( 24 )
+"nodes/Animation 6/position" = Vector2( 100, 40 )
+"nodes/Animation 7/node" = SubResource( 25 )
+"nodes/Animation 7/position" = Vector2( -440, 460 )
+"nodes/Animation 8/node" = SubResource( 30 )
+"nodes/Animation 8/position" = Vector2( -440, 600 )
+"nodes/Animation 9/node" = SubResource( 31 )
+"nodes/Animation 9/position" = Vector2( -460, 1160 )
+nodes/damage_state/node = SubResource( 20 )
+nodes/damage_state/position = Vector2( 620, 400 )
+nodes/in_air_1/node = SubResource( 26 )
+nodes/in_air_1/position = Vector2( 80, 280 )
+nodes/in_air_2/node = SubResource( 21 )
+nodes/in_air_2/position = Vector2( 80, 920 )
+nodes/is_falling_1/node = SubResource( 32 )
+nodes/is_falling_1/position = Vector2( -140, 460 )
+nodes/is_falling_2/node = SubResource( 33 )
+nodes/is_falling_2/position = Vector2( -200, 1060 )
+nodes/movement_1/node = SubResource( 27 )
+nodes/movement_1/position = Vector2( -240, 240 )
+nodes/movement_2/node = SubResource( 22 )
+nodes/movement_2/position = Vector2( -140, 800 )
+nodes/output/position = Vector2( 1040, 520 )
+node_connections = [ "output", 0, "damage_state", "in_air_1", 0, "movement_1", "in_air_1", 1, "is_falling_1", "damage_state", 0, "Animation 6", "damage_state", 1, "in_air_1", "damage_state", 2, "in_air_2", "in_air_2", 0, "movement_2", "in_air_2", 1, "is_falling_2", "is_falling_1", 0, "Animation 7", "is_falling_1", 1, "Animation 8", "movement_2", 0, "Animation", "movement_2", 1, "Animation 2", "movement_1", 0, "Animation 4", "movement_1", 1, "Animation 5", "is_falling_2", 0, "Animation 3", "is_falling_2", 1, "Animation 9" ]
+
+[node name="Player" type="KinematicBody"]
+collision_mask = 2
+script = ExtResource( 2 )
+jump_height = 2.0
+jump_peak = 1.0
+jump_descent = 0.05
+
+[node name="BlobShadow" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0134406, 1, -0.00285673 )
+light_indirect_energy = 0.0
+light_negative = true
+spot_range = 6.0
+spot_angle = 5.95983
+
+[node name="ObstacleHitboxArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001 )
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="ObstacleHitboxArea"]
+transform = Transform( 0.247, 0, 0, 0, 0.389, 0, 0, 0, 0.031, 0, -0.159083, 0 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.247, 0, 0, 0, 0.389, 0, 0, 0, 0.031, 0, -0.159083, 0 )
+shape = SubResource( 14 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1.02166, 0, 0, 0, 1, 0, -0.157423, 0 )
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 4
+frame = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/damage = SubResource( 8 )
+anims/death_1 = SubResource( 10 )
+anims/death_2 = SubResource( 6 )
+anims/falling_1 = SubResource( 28 )
+anims/falling_2 = SubResource( 29 )
+anims/idle_1 = SubResource( 9 )
+anims/idle_2 = SubResource( 2 )
+anims/jump_1 = SubResource( 12 )
+anims/jump_2 = SubResource( 3 )
+anims/walk_1 = SubResource( 13 )
+anims/walk_2 = SubResource( 5 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 23 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/damage_state/current = 2
+parameters/in_air_1/current = 0
+parameters/in_air_2/current = 0
+parameters/is_falling_1/current = 0
+parameters/is_falling_2/current = 0
+parameters/movement_1/current = 0
+parameters/movement_2/current = 0
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="ObstacleHitboxArea" to="." method="_on_ObstacleHitboxArea_body_entered"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]

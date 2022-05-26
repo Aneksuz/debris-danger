@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Interface/UI/TitleScreen/Buttons/ResumeButton.gd" type="Script" id=2]
+[ext_resource path="res://Interface/UI/TitleScreen/Buttons/RetryButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Interface/UI/TitleScreen/Buttons/ResumeButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Interface/UI/TitleScreen/Buttons/QuitButton.tscn" type="PackedScene" id=5]
+
+[node name="PausedOverlay" type="ColorRect"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.054902, 0.0352941, 0.184314, 0.686275 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -92.5
+margin_top = 133.0
+margin_right = 92.5
+margin_bottom = 194.0
+text = "PAUSED"
+
+[node name="PausedMenu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -223.0
+margin_top = -194.0
+margin_right = 223.0
+margin_bottom = 311.0
+
+[node name="ResumeButton" parent="PausedMenu" instance=ExtResource( 4 )]
+margin_right = 446.0
+margin_bottom = 67.0
+script = ExtResource( 2 )
+
+[node name="RetryButton" parent="PausedMenu" instance=ExtResource( 3 )]
+margin_top = 71.0
+margin_right = 446.0
+margin_bottom = 138.0
+
+[node name="QuitButton" parent="PausedMenu" instance=ExtResource( 5 )]
+margin_top = 142.0
+margin_right = 446.0
+margin_bottom = 209.0
+transition_to = "res://Interface/UI/TitleScreen/TitleScreen_UI.tscn"
+
+[connection signal="button_up" from="PausedMenu/QuitButton" to="PausedMenu/QuitButton" method="_on_QuitButton_button_up"]
